@@ -3,22 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ghar ki Safai — Survey</title>
+<title>Maid Jee — Survey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
-    --primary:#0f766e;
-    --primary-dark:#115e59;
-    --primary-light:#ccfbf1;
+    --primary:#6d28d9;
+    --primary-dark:#4c1d95;
+    --primary-light:#ede9fe;
     --accent:#f59e0b;
-    --bg:#f5f7f7;
+    --bg:#f6f3ff;
     --card:#ffffff;
-    --text:#17201f;
-    --muted:#64748b;
-    --border:#dbe4e2;
+    --text:#1f1a33;
+    --muted:#6b6488;
+    --border:#e0d7f7;
     --danger:#dc2626;
     --success:#16a34a;
-    --shadow:0 18px 50px rgba(15,118,110,.10);
+    --shadow:0 18px 50px rgba(109,40,217,.10);
     --radius:20px;
 }
 
@@ -41,7 +44,7 @@ body{
         "Segoe UI",
         sans-serif;
     background:
-        radial-gradient(circle at top left, rgba(15,118,110,.08), transparent 30%),
+        radial-gradient(circle at top left, rgba(109,40,217,.08), transparent 30%),
         var(--bg);
     color:var(--text);
     min-height:100vh;
@@ -71,11 +74,11 @@ button{
 }
 
 .hero-card{
-    background:linear-gradient(135deg, #0f766e, #115e59);
+    background:linear-gradient(135deg, #4c1d95 0%, #7c3aed 55%, #db2777 100%);
     color:white;
     border-radius:28px;
     padding:38px;
-    box-shadow:0 25px 60px rgba(15,118,110,.22);
+    box-shadow:0 25px 60px rgba(109,40,217,.22);
     position:relative;
     overflow:hidden;
 }
@@ -140,7 +143,7 @@ button{
     top:0;
     z-index:20;
     padding:12px 0;
-    background:rgba(245,247,247,.92);
+    background:rgba(246,243,255,.92);
     backdrop-filter:blur(14px);
 }
 
@@ -149,7 +152,7 @@ button{
     border:1px solid var(--border);
     border-radius:16px;
     padding:12px 15px;
-    box-shadow:0 8px 30px rgba(15,118,110,.06);
+    box-shadow:0 8px 30px rgba(109,40,217,.06);
 }
 
 .progress-top{
@@ -173,7 +176,7 @@ button{
 
 .progress-bar{
     height:7px;
-    background:#e8efed;
+    background:#ece6fb;
     border-radius:99px;
     overflow:hidden;
 }
@@ -181,7 +184,7 @@ button{
 .progress-fill{
     height:100%;
     width:16.66%;
-    background:linear-gradient(90deg,var(--primary),#14b8a6);
+    background:linear-gradient(90deg,var(--primary),#ec4899);
     border-radius:99px;
     transition:.35s ease;
 }
@@ -336,7 +339,7 @@ button{
     border:1px solid var(--border);
     border-radius:13px;
     background:#fff;
-    color:#263331;
+    color:#2b2547;
     cursor:pointer;
     transition:
         border-color .18s ease,
@@ -349,20 +352,20 @@ button{
 }
 
 .option-label:hover{
-    border-color:#8bc7c0;
-    background:#f8fffe;
+    border-color:#a78bfa;
+    background:#faf7ff;
     transform:translateY(-1px);
 }
 
 .option input:checked + .option-label{
     border-color:var(--primary);
-    background:#ecfdf9;
+    background:#f1eaff;
     color:var(--primary-dark);
-    box-shadow:0 5px 18px rgba(15,118,110,.10);
+    box-shadow:0 5px 18px rgba(109,40,217,.10);
 }
 
 .option input:focus-visible + .option-label{
-    outline:3px solid rgba(20,184,166,.25);
+    outline:3px solid rgba(124,58,237,.30);
     outline-offset:2px;
 }
 
@@ -370,7 +373,7 @@ button{
     flex:0 0 auto;
     width:18px;
     height:18px;
-    border:1.5px solid #b9c9c6;
+    border:1.5px solid #bfb4dc;
     display:grid;
     place-items:center;
     transition:.18s ease;
@@ -442,7 +445,7 @@ button{
     border-radius:13px;
     padding:12px 13px;
     outline:none;
-    background:#fbfdfd;
+    background:#fcfbff;
     color:var(--text);
     transition:.2s ease;
     font-size:14px;
@@ -451,7 +454,7 @@ button{
 .other-field textarea:focus,
 .text-answer:focus{
     border-color:var(--primary);
-    box-shadow:0 0 0 4px rgba(15,118,110,.08);
+    box-shadow:0 0 0 4px rgba(109,40,217,.08);
     background:white;
 }
 
@@ -471,7 +474,7 @@ button{
     padding:0 13px;
     margin-bottom:10px;
     outline:none;
-    background:#fbfdfd;
+    background:#fcfbff;
     color:var(--text);
     font-size:14px;
     transition:.2s ease;
@@ -479,7 +482,7 @@ button{
 
 .area-search:focus{
     border-color:var(--primary);
-    box-shadow:0 0 0 4px rgba(15,118,110,.08);
+    box-shadow:0 0 0 4px rgba(109,40,217,.08);
     background:white;
 }
 
@@ -548,7 +551,7 @@ button{
 
 .nav-btn:hover{
     transform:translateY(-1px);
-    box-shadow:0 8px 22px rgba(15,118,110,.08);
+    box-shadow:0 8px 22px rgba(109,40,217,.08);
 }
 
 .nav-btn.primary{
@@ -656,7 +659,7 @@ button{
         z-index:15;
         margin:20px -9px 0;
         padding:10px 9px;
-        background:rgba(245,247,247,.94);
+        background:rgba(246,243,255,.94);
         backdrop-filter:blur(12px);
     }
 
@@ -701,15 +704,15 @@ button{
 ========================= */
 
 .info-card{
-    background:#f0fdfa;
-    border:1px solid #99f6e4;
+    background:#f5f0ff;
+    border:1px solid #d4c2fb;
     border-left:5px solid var(--primary);
     border-radius:var(--radius);
     padding:18px 20px;
     margin-bottom:15px;
     font-size:14px;
     line-height:1.7;
-    color:#134e4a;
+    color:#3b2a6b;
 }
 
 .info-card strong{
@@ -754,7 +757,7 @@ button{
     font-size:40px;
     line-height:1;
     padding:2px 3px;
-    color:#cbd5d3;
+    color:#d9d2ee;
     cursor:pointer;
     transition:color .15s ease, transform .15s ease;
 }
@@ -770,7 +773,7 @@ button{
 }
 
 .stars input:focus-visible + label{
-    outline:3px solid rgba(20,184,166,.25);
+    outline:3px solid rgba(124,58,237,.30);
     border-radius:8px;
 }
 
@@ -788,6 +791,95 @@ button{
     font-size:12px;
     color:var(--muted);
 }
+
+/* =========================
+   THEME UPGRADE (Maid Jee)
+========================= */
+
+body{
+    font-family:"Poppins",Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+    background:
+        radial-gradient(circle at 0% 0%, rgba(124,58,237,.14), transparent 32%),
+        radial-gradient(circle at 100% 18%, rgba(236,72,153,.10), transparent 30%),
+        var(--bg);
+}
+
+.hero h1{
+    letter-spacing:-.5px;
+}
+
+.badge{
+    background:rgba(255,255,255,.18);
+    font-size:13px;
+}
+
+.question{
+    border-radius:22px;
+    border:1px solid #e6defa;
+    box-shadow:0 10px 34px rgba(109,40,217,.08);
+    transition:box-shadow .2s ease, transform .2s ease;
+}
+
+.question:hover{
+    box-shadow:0 16px 42px rgba(109,40,217,.14);
+}
+
+.question-number{
+    background:linear-gradient(135deg,#7c3aed,#ec4899);
+    color:#fff;
+}
+
+.option-label{
+    border:1.5px solid #e3dbf7;
+    font-weight:500;
+}
+
+.option input:checked + .option-label{
+    background:linear-gradient(135deg,#f3ecff,#ffeaf4);
+    border-color:#7c3aed;
+    color:#3b1a86;
+    font-weight:600;
+    box-shadow:0 6px 18px rgba(124,58,237,.18);
+}
+
+.option input:checked + .option-label .option-icon{
+    background:linear-gradient(135deg,#7c3aed,#ec4899);
+    border-color:#7c3aed;
+}
+
+.nav-btn.primary,
+.restart-btn{
+    background:linear-gradient(135deg,#6d28d9,#db2777);
+    border-color:transparent;
+    box-shadow:0 10px 24px rgba(124,58,237,.30);
+}
+
+.nav-btn.primary:hover,
+.restart-btn:hover{
+    background:linear-gradient(135deg,#5b21b6,#be185d);
+}
+
+.progress-fill{
+    background:linear-gradient(90deg,#7c3aed,#ec4899);
+}
+
+.info-card{
+    background:linear-gradient(135deg,#f5f0ff,#fff1f8);
+    border-color:#e2d3fb;
+    border-left-color:#db2777;
+}
+
+.success-icon{
+    background:linear-gradient(135deg,#7c3aed,#ec4899);
+    color:#fff;
+}
+
+.stars input:checked ~ label,
+.stars label:hover,
+.stars label:hover ~ label{
+    color:#f59e0b;
+    text-shadow:0 2px 8px rgba(245,158,11,.35);
+}
 </style>
 </head>
 
@@ -798,11 +890,11 @@ button{
     <!-- HERO -->
     <header class="hero">
         <div class="hero-card">
-            <div class="badge">🏠 Ghar ki Safai Service</div>
+            <div class="badge">🧹 Maid Jee</div>
 
             <p class="prehead">Ghar ki safai ke baare mein aap ki raaye</p>
 
-            <h1>Aap ke ghar ki safai, aasaan aur bharose ke saath</h1>
+            <h1>Maid Jee: aap ke ghar ki safai, aasaan aur bharose ke saath</h1>
 
             <p>
                 Assalam o Alaikum! Hum Lahore (Model Town se shuruat) mein ghar ki safai ki ek nayi service shuru karne ja rahe hain:
@@ -910,7 +1002,7 @@ function scrollToTop(){
 // Setup ke liye SETUP-SHEET.md dekhein.
 const SHEET_URL = "https://script.google.com/macros/s/AKfycbwRScYO8xnjCAmJluopPyTwcE8AWLCdnIHmwSGR55uDptO9VAeFx4H13wUIqfsq2bVT/exec";
 
-const SURVEY_NAME = "Ghar Saaf — Lahore Market Survey";
+const SURVEY_NAME = "Maid Jee — Lahore Market Survey";
 
 const SURVEY_VERSION = "2.0";
 
