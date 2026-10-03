@@ -6,22 +6,22 @@
 <title>Maid Jee — Survey</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-    --primary:#6d28d9;
-    --primary-dark:#4c1d95;
-    --primary-light:#ede9fe;
+    --primary:#f70f79;
+    --primary-dark:#c90a60;
+    --primary-light:#fff3f8;
     --accent:#f59e0b;
-    --bg:#f6f3ff;
+    --bg:#ffffff;
     --card:#ffffff;
-    --text:#1f1a33;
-    --muted:#6b6488;
-    --border:#e0d7f7;
+    --text:#181f1f;
+    --muted:#7a7a7a;
+    --border:#ececec;
     --danger:#dc2626;
     --success:#16a34a;
-    --shadow:0 18px 50px rgba(109,40,217,.10);
+    --shadow:0 2px 14px rgba(0,0,0,.05);
     --radius:20px;
 }
 
@@ -44,7 +44,7 @@ body{
         "Segoe UI",
         sans-serif;
     background:
-        radial-gradient(circle at top left, rgba(109,40,217,.08), transparent 30%),
+        radial-gradient(circle at top left, rgba(247,15,121,.08), transparent 30%),
         var(--bg);
     color:var(--text);
     min-height:100vh;
@@ -74,11 +74,11 @@ button{
 }
 
 .hero-card{
-    background:linear-gradient(135deg, #4c1d95 0%, #7c3aed 55%, #db2777 100%);
+    background:linear-gradient(135deg, #f70f79 0%, #e0086b 100%);
     color:white;
     border-radius:28px;
     padding:38px;
-    box-shadow:0 25px 60px rgba(109,40,217,.22);
+    box-shadow:0 25px 60px rgba(247,15,121,.22);
     position:relative;
     overflow:hidden;
 }
@@ -143,7 +143,7 @@ button{
     top:0;
     z-index:20;
     padding:12px 0;
-    background:rgba(246,243,255,.92);
+    background:rgba(255,255,255,.92);
     backdrop-filter:blur(14px);
 }
 
@@ -152,7 +152,7 @@ button{
     border:1px solid var(--border);
     border-radius:16px;
     padding:12px 15px;
-    box-shadow:0 8px 30px rgba(109,40,217,.06);
+    box-shadow:0 8px 30px rgba(247,15,121,.06);
 }
 
 .progress-top{
@@ -176,7 +176,7 @@ button{
 
 .progress-bar{
     height:7px;
-    background:#ece6fb;
+    background:#f0f0f0;
     border-radius:99px;
     overflow:hidden;
 }
@@ -184,7 +184,7 @@ button{
 .progress-fill{
     height:100%;
     width:16.66%;
-    background:linear-gradient(90deg,var(--primary),#ec4899);
+    background:linear-gradient(90deg,var(--primary),#f70f79);
     border-radius:99px;
     transition:.35s ease;
 }
@@ -339,7 +339,7 @@ button{
     border:1px solid var(--border);
     border-radius:13px;
     background:#fff;
-    color:#2b2547;
+    color:#303030;
     cursor:pointer;
     transition:
         border-color .18s ease,
@@ -352,20 +352,20 @@ button{
 }
 
 .option-label:hover{
-    border-color:#a78bfa;
-    background:#faf7ff;
+    border-color:#f7a3c8;
+    background:#fff8fb;
     transform:translateY(-1px);
 }
 
 .option input:checked + .option-label{
     border-color:var(--primary);
-    background:#f1eaff;
+    background:#fff3f8;
     color:var(--primary-dark);
-    box-shadow:0 5px 18px rgba(109,40,217,.10);
+    box-shadow:0 5px 18px rgba(247,15,121,.10);
 }
 
 .option input:focus-visible + .option-label{
-    outline:3px solid rgba(124,58,237,.30);
+    outline:3px solid rgba(247,15,121,.25);
     outline-offset:2px;
 }
 
@@ -373,7 +373,7 @@ button{
     flex:0 0 auto;
     width:18px;
     height:18px;
-    border:1.5px solid #bfb4dc;
+    border:1.5px solid #cfcfcf;
     display:grid;
     place-items:center;
     transition:.18s ease;
@@ -445,7 +445,7 @@ button{
     border-radius:13px;
     padding:12px 13px;
     outline:none;
-    background:#fcfbff;
+    background:#fafafa;
     color:var(--text);
     transition:.2s ease;
     font-size:14px;
@@ -454,7 +454,7 @@ button{
 .other-field textarea:focus,
 .text-answer:focus{
     border-color:var(--primary);
-    box-shadow:0 0 0 4px rgba(109,40,217,.08);
+    box-shadow:0 0 0 4px rgba(247,15,121,.08);
     background:white;
 }
 
@@ -474,7 +474,7 @@ button{
     padding:0 13px;
     margin-bottom:10px;
     outline:none;
-    background:#fcfbff;
+    background:#fafafa;
     color:var(--text);
     font-size:14px;
     transition:.2s ease;
@@ -482,7 +482,7 @@ button{
 
 .area-search:focus{
     border-color:var(--primary);
-    box-shadow:0 0 0 4px rgba(109,40,217,.08);
+    box-shadow:0 0 0 4px rgba(247,15,121,.08);
     background:white;
 }
 
@@ -551,7 +551,7 @@ button{
 
 .nav-btn:hover{
     transform:translateY(-1px);
-    box-shadow:0 8px 22px rgba(109,40,217,.08);
+    box-shadow:0 8px 22px rgba(247,15,121,.08);
 }
 
 .nav-btn.primary{
@@ -659,7 +659,7 @@ button{
         z-index:15;
         margin:20px -9px 0;
         padding:10px 9px;
-        background:rgba(246,243,255,.94);
+        background:rgba(255,255,255,.94);
         backdrop-filter:blur(12px);
     }
 
@@ -704,15 +704,15 @@ button{
 ========================= */
 
 .info-card{
-    background:#f5f0ff;
-    border:1px solid #d4c2fb;
+    background:#fff3f8;
+    border:1px solid #efc3d7;
     border-left:5px solid var(--primary);
     border-radius:var(--radius);
     padding:18px 20px;
     margin-bottom:15px;
     font-size:14px;
     line-height:1.7;
-    color:#3b2a6b;
+    color:#181f1f;
 }
 
 .info-card strong{
@@ -757,7 +757,7 @@ button{
     font-size:40px;
     line-height:1;
     padding:2px 3px;
-    color:#d9d2ee;
+    color:#e2e2e2;
     cursor:pointer;
     transition:color .15s ease, transform .15s ease;
 }
@@ -773,7 +773,7 @@ button{
 }
 
 .stars input:focus-visible + label{
-    outline:3px solid rgba(124,58,237,.30);
+    outline:3px solid rgba(247,15,121,.25);
     border-radius:8px;
 }
 
@@ -793,92 +793,151 @@ button{
 }
 
 /* =========================
-   THEME UPGRADE (Maid Jee)
+   SNABBIT-STYLE THEME
+   Hot pink #F70F79, safed cards, kala text
 ========================= */
 
 body{
-    font-family:"Poppins",Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-family:"Instrument Sans",Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
     background:
-        radial-gradient(circle at 0% 0%, rgba(124,58,237,.14), transparent 32%),
-        radial-gradient(circle at 100% 18%, rgba(236,72,153,.10), transparent 30%),
-        var(--bg);
+        radial-gradient(circle at 100% 0%, rgba(247,15,121,.07), transparent 28%),
+        #ffffff;
 }
 
-.hero h1{
-    letter-spacing:-.5px;
+.hero-card{
+    border-radius:26px;
+    box-shadow:0 20px 44px rgba(247,15,121,.28);
+}
+
+.hero-card::after,
+.hero-card::before{
+    border-color:rgba(255,255,255,.28);
 }
 
 .badge{
-    background:rgba(255,255,255,.18);
+    background:#ffffff;
+    color:#f70f79;
+    border:none;
     font-size:13px;
+    font-weight:800;
+}
+
+.hero .prehead{
+    color:#ffe0ee;
+}
+
+.hero h1{
+    font-weight:800;
+    letter-spacing:-.8px;
+}
+
+.progress-wrapper{
+    background:rgba(255,255,255,.94);
+}
+
+.progress-card{
+    border-radius:14px;
+    box-shadow:0 2px 10px rgba(0,0,0,.05);
+}
+
+.progress-fill{
+    background:#f70f79;
+}
+
+.phase-header h2{
+    font-weight:800;
+    color:#181f1f;
 }
 
 .question{
-    border-radius:22px;
-    border:1px solid #e6defa;
-    box-shadow:0 10px 34px rgba(109,40,217,.08);
-    transition:box-shadow .2s ease, transform .2s ease;
-}
-
-.question:hover{
-    box-shadow:0 16px 42px rgba(109,40,217,.14);
+    border:1px solid #f0f0f0;
+    border-radius:20px;
+    box-shadow:0 2px 14px rgba(0,0,0,.05);
 }
 
 .question-number{
-    background:linear-gradient(135deg,#7c3aed,#ec4899);
-    color:#fff;
+    background:#fff3f8;
+    color:#f70f79;
+    border-radius:10px;
+}
+
+.question-text{
+    color:#181f1f;
+    font-weight:700;
 }
 
 .option-label{
-    border:1.5px solid #e3dbf7;
+    border:1.5px solid #ececec;
+    border-radius:14px;
+    color:#303030;
     font-weight:500;
 }
 
+.option-label:hover{
+    border-color:#f7a3c8;
+    background:#fffafc;
+}
+
 .option input:checked + .option-label{
-    background:linear-gradient(135deg,#f3ecff,#ffeaf4);
-    border-color:#7c3aed;
-    color:#3b1a86;
-    font-weight:600;
-    box-shadow:0 6px 18px rgba(124,58,237,.18);
+    background:#fff3f8;
+    border-color:#f70f79;
+    color:#181f1f;
+    font-weight:700;
+    box-shadow:0 0 0 3px rgba(247,15,121,.10);
 }
 
 .option input:checked + .option-label .option-icon{
-    background:linear-gradient(135deg,#7c3aed,#ec4899);
-    border-color:#7c3aed;
+    background:#f70f79;
+    border-color:#f70f79;
+}
+
+.nav-btn{
+    border-radius:14px;
+    border:1.5px solid #e2e2e2;
+    color:#181f1f;
 }
 
 .nav-btn.primary,
 .restart-btn{
-    background:linear-gradient(135deg,#6d28d9,#db2777);
-    border-color:transparent;
-    box-shadow:0 10px 24px rgba(124,58,237,.30);
+    background:#f70f79;
+    border-color:#f70f79;
+    color:#fff;
+    box-shadow:0 10px 22px rgba(247,15,121,.28);
 }
 
 .nav-btn.primary:hover,
 .restart-btn:hover{
-    background:linear-gradient(135deg,#5b21b6,#be185d);
-}
-
-.progress-fill{
-    background:linear-gradient(90deg,#7c3aed,#ec4899);
+    background:#d90a68;
+    border-color:#d90a68;
 }
 
 .info-card{
-    background:linear-gradient(135deg,#f5f0ff,#fff1f8);
-    border-color:#e2d3fb;
-    border-left-color:#db2777;
+    background:#fff3f8;
+    border:1px solid #efc3d7;
+    border-left:5px solid #f70f79;
+    color:#303030;
+}
+
+.info-card strong{
+    color:#c90a60;
+}
+
+.other-field textarea:focus,
+.text-answer:focus,
+.area-search:focus{
+    border-color:#f70f79;
+    box-shadow:0 0 0 4px rgba(247,15,121,.10);
 }
 
 .success-icon{
-    background:linear-gradient(135deg,#7c3aed,#ec4899);
+    background:#f70f79;
     color:#fff;
 }
 
 .stars input:checked ~ label,
 .stars label:hover,
 .stars label:hover ~ label{
-    color:#f59e0b;
-    text-shadow:0 2px 8px rgba(245,158,11,.35);
+    color:#ffb400;
 }
 </style>
 </head>
