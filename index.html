@@ -1,0 +1,2377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghar ki Safai — Survey</title>
+
+<style>
+:root{
+    --primary:#0f766e;
+    --primary-dark:#115e59;
+    --primary-light:#ccfbf1;
+    --accent:#f59e0b;
+    --bg:#f5f7f7;
+    --card:#ffffff;
+    --text:#17201f;
+    --muted:#64748b;
+    --border:#dbe4e2;
+    --danger:#dc2626;
+    --success:#16a34a;
+    --shadow:0 18px 50px rgba(15,118,110,.10);
+    --radius:20px;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(15,118,110,.08), transparent 30%),
+        var(--bg);
+    color:var(--text);
+    min-height:100vh;
+}
+
+button,
+input,
+textarea{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+.container{
+    width:min(960px, calc(100% - 28px));
+    margin:auto;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    padding:42px 0 24px;
+}
+
+.hero-card{
+    background:linear-gradient(135deg, #0f766e, #115e59);
+    color:white;
+    border-radius:28px;
+    padding:38px;
+    box-shadow:0 25px 60px rgba(15,118,110,.22);
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-card::after{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:50%;
+    right:-70px;
+    top:-80px;
+}
+
+.hero-card::before{
+    content:"";
+    position:absolute;
+    width:150px;
+    height:150px;
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:50%;
+    right:60px;
+    bottom:-100px;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    padding:7px 12px;
+    border-radius:999px;
+    background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.16);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.3px;
+    margin-bottom:15px;
+}
+
+.hero h1{
+    margin:0 0 12px;
+    font-size:clamp(28px,5vw,44px);
+    line-height:1.1;
+    letter-spacing:-1px;
+}
+
+.hero p{
+    margin:0;
+    max-width:720px;
+    color:rgba(255,255,255,.88);
+    line-height:1.7;
+    font-size:15px;
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress-wrapper{
+    position:sticky;
+    top:0;
+    z-index:20;
+    padding:12px 0;
+    background:rgba(245,247,247,.92);
+    backdrop-filter:blur(14px);
+}
+
+.progress-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:12px 15px;
+    box-shadow:0 8px 30px rgba(15,118,110,.06);
+}
+
+.progress-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    margin-bottom:9px;
+}
+
+.progress-title{
+    font-size:13px;
+    font-weight:800;
+}
+
+.progress-percent{
+    font-size:12px;
+    color:var(--primary);
+    font-weight:800;
+}
+
+.progress-bar{
+    height:7px;
+    background:#e8efed;
+    border-radius:99px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    width:16.66%;
+    background:linear-gradient(90deg,var(--primary),#14b8a6);
+    border-radius:99px;
+    transition:.35s ease;
+}
+
+/* =========================
+   PHASE
+========================= */
+
+.phase{
+    display:none;
+    animation:phaseIn .35s ease;
+}
+
+.phase.active{
+    display:block;
+}
+
+@keyframes phaseIn{
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+.phase-header{
+    margin:26px 0 16px;
+}
+
+.phase-number{
+    color:var(--primary);
+    font-size:12px;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:5px;
+}
+
+.phase-header h2{
+    margin:0;
+    font-size:clamp(23px,4vw,31px);
+    letter-spacing:-.5px;
+}
+
+.hero .prehead{
+    font-size:13px;
+    font-weight:700;
+    color:#fde68a;
+    margin:0 0 10px;
+}
+
+
+/* =========================
+   QUESTIONS
+========================= */
+
+
+.question{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:22px;
+    margin-bottom:15px;
+    box-shadow:var(--shadow);
+}
+
+.question.error{
+    border-color:#fca5a5;
+    box-shadow:0 10px 35px rgba(220,38,38,.08);
+}
+
+.question-title{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.question-number{
+    flex:0 0 auto;
+    width:28px;
+    height:28px;
+    display:grid;
+    place-items:center;
+    border-radius:9px;
+    background:var(--primary-light);
+    color:var(--primary-dark);
+    font-size:12px;
+    font-weight:900;
+}
+
+.question-text{
+    font-size:15px;
+    font-weight:800;
+    line-height:1.5;
+}
+
+.question-hint{
+    display:block;
+    color:var(--muted);
+    font-size:12px;
+    font-weight:500;
+    margin-top:2px;
+}
+
+/* =========================
+   OPTIONS
+========================= */
+
+.options{
+    display:grid;
+    gap:8px;
+}
+
+/*
+  ONE CHOICE:
+  Compact cards so short options fit
+  together in one row.
+*/
+.options.single{
+    grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+}
+
+/*
+  MULTIPLE CHOICE:
+  Slightly wider because text is usually longer.
+*/
+.options.multiple{
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+}
+
+.option{
+    position:relative;
+}
+
+.option input{
+    position:absolute;
+    opacity:0;
+    pointer-events:none;
+}
+
+.option-label{
+    min-height:48px;
+    width:100%;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:9px 11px;
+    border:1px solid var(--border);
+    border-radius:13px;
+    background:#fff;
+    color:#263331;
+    cursor:pointer;
+    transition:
+        border-color .18s ease,
+        background .18s ease,
+        transform .15s ease,
+        box-shadow .18s ease;
+    font-size:13px;
+    line-height:1.35;
+    user-select:none;
+}
+
+.option-label:hover{
+    border-color:#8bc7c0;
+    background:#f8fffe;
+    transform:translateY(-1px);
+}
+
+.option input:checked + .option-label{
+    border-color:var(--primary);
+    background:#ecfdf9;
+    color:var(--primary-dark);
+    box-shadow:0 5px 18px rgba(15,118,110,.10);
+}
+
+.option input:focus-visible + .option-label{
+    outline:3px solid rgba(20,184,166,.25);
+    outline-offset:2px;
+}
+
+.option-icon{
+    flex:0 0 auto;
+    width:18px;
+    height:18px;
+    border:1.5px solid #b9c9c6;
+    display:grid;
+    place-items:center;
+    transition:.18s ease;
+}
+
+.single .option-icon{
+    border-radius:50%;
+}
+
+.multiple .option-icon{
+    border-radius:5px;
+}
+
+.option input:checked + .option-label .option-icon{
+    background:var(--primary);
+    border-color:var(--primary);
+    position:relative;
+}
+
+.option input:checked + .option-label .option-icon::after{
+    content:"";
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:white;
+}
+
+.multiple .option input:checked + .option-label .option-icon::after{
+    width:9px;
+    height:5px;
+    border-radius:0;
+    border-left:2px solid white;
+    border-bottom:2px solid white;
+    background:transparent;
+    transform:rotate(-45deg) translate(1px,-1px);
+}
+
+/* =========================
+   OTHER FIELD
+========================= */
+
+.other-field{
+    display:none;
+    margin-top:10px;
+    animation:otherIn .2s ease;
+}
+
+.other-field.show{
+    display:block;
+}
+
+@keyframes otherIn{
+    from{
+        opacity:0;
+        transform:translateY(-4px);
+    }
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+.other-field textarea,
+.text-answer{
+    width:100%;
+    min-height:92px;
+    resize:vertical;
+    border:1px solid var(--border);
+    border-radius:13px;
+    padding:12px 13px;
+    outline:none;
+    background:#fbfdfd;
+    color:var(--text);
+    transition:.2s ease;
+    font-size:14px;
+}
+
+.other-field textarea:focus,
+.text-answer:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 4px rgba(15,118,110,.08);
+    background:white;
+}
+
+.text-answer{
+    min-height:125px;
+}
+
+/* =========================
+   AREA SEARCH (depends on city)
+========================= */
+
+.area-search{
+    width:100%;
+    min-height:46px;
+    border:1px solid var(--border);
+    border-radius:13px;
+    padding:0 13px;
+    margin-bottom:10px;
+    outline:none;
+    background:#fbfdfd;
+    color:var(--text);
+    font-size:14px;
+    transition:.2s ease;
+}
+
+.area-search:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 4px rgba(15,118,110,.08);
+    background:white;
+}
+
+.area-search:disabled{
+    opacity:.55;
+    cursor:not-allowed;
+}
+
+.area-list{
+    max-height:340px;
+    overflow-y:auto;
+    padding:2px;
+    margin-bottom:8px;
+}
+
+.area-list .options.single{
+    grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+}
+
+.area-hint{
+    padding:12px 13px;
+    border:1px dashed var(--border);
+    border-radius:13px;
+    color:var(--muted);
+    font-size:13px;
+    margin-bottom:8px;
+}
+
+.area-hint:empty{
+    display:none;
+}
+
+.error-message{
+    display:none;
+    margin-top:8px;
+    color:var(--danger);
+    font-size:12px;
+    font-weight:700;
+}
+
+.question.error .error-message{
+    display:block;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navigation{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    margin:20px 0 45px;
+}
+
+.nav-btn{
+    min-height:50px;
+    padding:0 21px;
+    border-radius:14px;
+    border:1px solid var(--border);
+    background:white;
+    color:var(--text);
+    font-weight:800;
+    transition:.18s ease;
+}
+
+.nav-btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 8px 22px rgba(15,118,110,.08);
+}
+
+.nav-btn.primary{
+    background:var(--primary);
+    color:white;
+    border-color:var(--primary);
+    min-width:150px;
+}
+
+.nav-btn.primary:hover{
+    background:var(--primary-dark);
+}
+
+.nav-btn:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
+
+/* =========================
+   SUCCESS
+========================= */
+
+.success{
+    display:none;
+    text-align:center;
+    background:white;
+    border:1px solid var(--border);
+    border-radius:28px;
+    padding:55px 25px;
+    margin:30px 0 70px;
+    box-shadow:var(--shadow);
+}
+
+.success.show{
+    display:block;
+    animation:phaseIn .4s ease;
+}
+
+.success-icon{
+    width:76px;
+    height:76px;
+    margin:0 auto 20px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:#dcfce7;
+    color:var(--success);
+    font-size:35px;
+}
+
+.success h2{
+    margin:0 0 10px;
+}
+
+.success p{
+    color:var(--muted);
+    line-height:1.7;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:650px){
+
+    .container{
+        width:min(100% - 18px, 960px);
+    }
+
+    .hero{
+        padding-top:18px;
+    }
+
+    .hero-card{
+        padding:27px 21px;
+        border-radius:22px;
+    }
+
+    .question{
+        padding:17px;
+        border-radius:17px;
+    }
+
+    .options.single{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .options.multiple{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .option-label{
+        min-height:48px;
+        padding:9px;
+        font-size:12px;
+    }
+
+    .question-text{
+        font-size:14px;
+    }
+
+    .navigation{
+        position:sticky;
+        bottom:0;
+        z-index:15;
+        margin:20px -9px 0;
+        padding:10px 9px;
+        background:rgba(245,247,247,.94);
+        backdrop-filter:blur(12px);
+    }
+
+    .nav-btn{
+        flex:1;
+        min-width:0;
+    }
+
+    .nav-btn.primary{
+        min-width:0;
+    }
+}
+
+@media(max-width:390px){
+
+    .options.single,
+    .options.multiple{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:28px;
+    }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media(prefers-reduced-motion:reduce){
+    *,
+    *::before,
+    *::after{
+        animation:none !important;
+        transition:none !important;
+        scroll-behavior:auto !important;
+    }
+}
+
+/* =========================
+   EXTRA COMPONENTS
+========================= */
+
+.info-card{
+    background:#f0fdfa;
+    border:1px solid #99f6e4;
+    border-left:5px solid var(--primary);
+    border-radius:var(--radius);
+    padding:18px 20px;
+    margin-bottom:15px;
+    font-size:14px;
+    line-height:1.7;
+    color:#134e4a;
+}
+
+.info-card strong{
+    color:var(--primary-dark);
+}
+
+.consent{
+    margin:14px 0 0;
+    font-size:12px;
+    color:rgba(255,255,255,.75);
+}
+
+.restart-btn{
+    margin-top:22px;
+    min-height:48px;
+    padding:0 24px;
+    border-radius:14px;
+    border:1px solid var(--primary);
+    background:var(--primary);
+    color:#fff;
+    font-weight:800;
+}
+
+.restart-btn:hover{
+    background:var(--primary-dark);
+}
+
+.stars{
+    display:flex;
+    flex-direction:row-reverse;
+    justify-content:flex-end;
+    gap:4px;
+}
+
+.stars input{
+    position:absolute;
+    opacity:0;
+    pointer-events:none;
+}
+
+.stars label{
+    font-size:40px;
+    line-height:1;
+    padding:2px 3px;
+    color:#cbd5d3;
+    cursor:pointer;
+    transition:color .15s ease, transform .15s ease;
+}
+
+.stars label:hover,
+.stars label:hover ~ label,
+.stars input:checked ~ label{
+    color:var(--accent);
+}
+
+.stars label:hover{
+    transform:scale(1.12);
+}
+
+.stars input:focus-visible + label{
+    outline:3px solid rgba(20,184,166,.25);
+    border-radius:8px;
+}
+
+.star-captions{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    margin-top:6px;
+    font-size:12px;
+    color:var(--muted);
+}
+
+.privacy-note{
+    margin-top:8px;
+    font-size:12px;
+    color:var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-card">
+            <div class="badge">🏠 Ghar ki Safai Service</div>
+
+            <p class="prehead">Ghar ki safai ke baare mein aap ki raaye</p>
+
+            <h1>Aap ke ghar ki safai, aasaan aur bharose ke saath</h1>
+
+            <p>
+                Assalam o Alaikum! Hum Lahore (Model Town se shuruat) mein ghar ki safai ki ek nayi service shuru karne ja rahe hain:
+                trained aur verified worker, jo aap ke ghar aa kar roz thori der safai karta hai.
+                Shuru karne se pehle hum aap se kuch sawal poochna chahte hain taake service waisi bane jaisi aap ko chahiye.
+                Isme koi jawab sahi ya ghalat nahi, bas aap ki asal raaye chahiye. Takreeban 5 minute lagenge.
+            </p>
+
+            <p class="consent">
+                Aap ke jawab sirf research ke liye hain. Aap ka naam nahi poochha ja raha, aur number likhna zaroori nahi.
+            </p>
+        </div>
+    </header>
+
+    <!-- PROGRESS -->
+    <div class="progress-wrapper">
+        <div class="progress-card">
+            <div class="progress-top">
+                <span class="progress-title" id="progressTitle">Phase 1 of 6</span>
+                <span class="progress-percent" id="progressPercent">17%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+    </div>
+
+    <form id="surveyForm" novalidate>
+
+        <input type="hidden" name="surveyor" value="">
+        <input type="hidden" name="source" value="">
+
+        <div id="phases"></div>
+
+        <div class="navigation">
+            <button type="button" class="nav-btn" id="prevBtn">← Peeche</button>
+            <button type="button" class="nav-btn primary" id="nextBtn">Aage chalein →</button>
+        </div>
+
+    </form>
+
+    <!-- SUCCESS -->
+    <div class="success" id="successScreen">
+        <div class="success-icon">✓</div>
+        <h2>Bohat shukriya!</h2>
+        <p>
+            Aap ne apna qeemti waqt diya, hum is ki qadar karte hain.
+            Aap ki raaye se yeh service Lahore ke gharon ki asal zaroorat ke mutabiq banaya jayega.
+        </p>
+        <button type="button" class="restart-btn" id="restartBtn">Naya jawab daalein</button>
+    </div>
+
+</div>
+
+
+<script>
+
+/* ============================================================
+   OLD BROWSER SUPPORT
+   Purane phones / WhatsApp / Facebook ke in-app browsers ke liye
+   is file mein ?. , async/await aur URLSearchParams istemal na karein.
+============================================================ */
+
+if(window.NodeList && !NodeList.prototype.forEach){
+    NodeList.prototype.forEach = Array.prototype.forEach;
+}
+
+if(!Element.prototype.matches){
+    Element.prototype.matches =
+        Element.prototype.msMatchesSelector ||
+        Element.prototype.webkitMatchesSelector;
+}
+
+if(!Element.prototype.closest){
+    Element.prototype.closest = function(selector){
+        var el = this;
+        while(el && el.nodeType === 1){
+            if(el.matches(selector)){
+                return el;
+            }
+            el = el.parentElement;
+        }
+        return null;
+    };
+}
+
+function toArray(list){
+    return Array.prototype.slice.call(list);
+}
+
+function scrollToTop(){
+    try{
+        window.scrollTo({ top:0, behavior:"smooth" });
+    }catch(error){
+        window.scrollTo(0, 0);
+    }
+}
+
+
+/* ============================================================
+   CONFIGURATION
+============================================================ */
+
+// Google Sheet ka Apps Script "Web app" link (jawab seedha sheet mein jate hain).
+// Setup ke liye SETUP-SHEET.md dekhein.
+const SHEET_URL = "https://script.google.com/macros/s/AKfycbwRScYO8xnjCAmJluopPyTwcE8AWLCdnIHmwSGR55uDptO9VAeFx4H13wUIqfsq2bVT/exec";
+
+const SURVEY_NAME = "Ghar Saaf — Lahore Market Survey";
+
+const SURVEY_VERSION = "2.0";
+
+
+/* ============================================================
+   AREAS (Lahore)
+============================================================ */
+
+const LAHORE_AREAS = [
+    "Model Town",
+    "Model Town Extension",
+    "Model Town Link Road",
+    "Garden Town",
+    "Faisal Town",
+    "Gulberg",
+    "Muslim Town",
+    "Ichhra",
+    "Wahdat Colony",
+    "Township",
+    "Johar Town",
+    "WAPDA Town",
+    "Allama Iqbal Town",
+    "Samanabad",
+    "Sabzazar",
+    "Shadman",
+    "Kot Lakhpat",
+    "Sunder Industrial Estate Road",
+    "Canal Bank (Model Town side)",
+    "Cantt",
+    "Garhi Shahu",
+    "Mozang"
+];
+
+
+/* ============================================================
+   SURVEY QUESTIONS
+
+   type    : single | multi | text | tel | area | info
+   options : "Value" ya "Value|Label". "!" se shuru ho to exclusive
+             (jaise "Koi masla nahi"), baqi options clear ho jate hain.
+   other   : true => "Kuch aur" option + text box
+   selectAll: true => "Sab kuch" option
+   min/max : multi sawal mein options ki hadd
+   showIf  : { name, in:[...] } => sawal sirf tab dikhta hai
+   optional: true => jawab zaroori nahi
+============================================================ */
+
+const MAID_ANY = ["Haan, aati hai (ghar mein nahi rehti)", "Haan, full-time (ghar mein rehti hai)"];
+
+const SURVEY = [
+
+    /* ---------------- PHASE 1 ---------------- */
+    {
+        title: "Pehle thora sa aap ke baare mein",
+        questions: [
+            {
+                type: "area",
+                name: "area",
+                text: "Aap ka ghar kis area mein hai?",
+                hint: "Model Town aur is ke aas paas ke areas"
+            },
+            {
+                type: "single",
+                name: "house_size",
+                text: "Aap ka ghar kitna bara hai?",
+                options: ["5 marla ya kam", "7–10 marla", "1 kanal", "2 kanal ya zyada", "Flat / apartment"]
+            },
+            {
+                type: "single",
+                name: "working_woman",
+                text: "Kya aap ke ghar ki khatoon job ya business karti hain?",
+                options: ["Haan", "Nahi", "Ghar mein koi khatoon nahi"]
+            }
+        ]
+    },
+
+    /* ---------------- PHASE 2 ---------------- */
+    {
+        title: "Abhi ghar ki safai kaise hoti hai?",
+        questions: [
+            {
+                type: "single",
+                name: "maid_currently",
+                text: "Kya aap ke ghar mein abhi koi maid ya safai wali aati hai?",
+                options: [
+                    "Haan, aati hai (ghar mein nahi rehti)",
+                    "Haan, full-time (ghar mein rehti hai)",
+                    "Nahi, abhi koi nahi"
+                ]
+            },
+            {
+                type: "multi",
+                name: "no_maid_reason",
+                text: "Phir safai ka kaam kaise hota hai?",
+                hint: "Jo jo lagu ho chun lein",
+                options: [
+                    "Ghar ki khawateen khud karti hain",
+                    "Ghar ke sab log mil kar karte hain",
+                    "Pehle maid thi, ab chhor di ya chali gayi",
+                    "Bharose wali maid nahi mili",
+                    "Maid ka kharcha zyada lagta hai",
+                    "Kabhi kabhi baahar se kisi ko bulate hain"
+                ],
+                other: true,
+                showIf: { name: "maid_currently", in: ["Nahi, abhi koi nahi"] }
+            },
+            {
+                type: "single",
+                name: "maid_frequency",
+                text: "Woh hafte mein kitne din aati hai?",
+                options: ["Roz", "Hafte mein 4–5 din", "Hafte mein 2–3 din", "Hafte mein 1 din", "Mahine mein 1–2 baar"],
+                showIf: { name: "maid_currently", in: ["Haan, aati hai (ghar mein nahi rehti)"] }
+            },
+            {
+                type: "single",
+                name: "maid_duration",
+                text: "Woh ek baar mein ghar mein taqreeban kitni der kaam karti hai?",
+                options: ["30 minute se kam", "30–60 minute", "1–2 ghante", "2 ghante se zyada"],
+                showIf: { name: "maid_currently", in: ["Haan, aati hai (ghar mein nahi rehti)"] }
+            },
+            {
+                type: "multi",
+                name: "maid_work",
+                text: "Woh kya kya kaam karti hai?",
+                hint: "Jo jo lagu ho chun lein",
+                options: [
+                    "Jharu pocha",
+                    "Bartan",
+                    "Kapre dhona",
+                    "Khana pakana",
+                    "Bathroom safai",
+                    "Kitchen safai",
+                    "Car wash"
+                ],
+                selectAll: true,
+                other: true,
+                showIf: { name: "maid_currently", in: MAID_ANY }
+            },
+            {
+                type: "single",
+                name: "maid_pay",
+                text: "Aap usay mahine ke kitne paise dete hain? (sab kaam milakar)",
+                options: [
+                    "Rs 3,000 se kam",
+                    "Rs 3,000–5,000",
+                    "Rs 5,000–8,000",
+                    "Rs 8,000–12,000",
+                    "Rs 12,000–15,000",
+                    "Rs 15,000 se zyada"
+                ],
+                showIf: { name: "maid_currently", in: MAID_ANY }
+            },
+            {
+                type: "multi",
+                name: "maid_problems",
+                text: "Pichle kuch mahino mein maid ke saath aap ko kaun se masle pesh aaye?",
+                hint: "Jo jo lagu ho chun lein",
+                options: [
+                    "Late aati hai",
+                    "Bina bataye chhutti kar leti hai",
+                    "Kaam theek se nahi karti",
+                    "Kaam adhoora chhor deti hai",
+                    "Chori ya bharose ka masla",
+                    "Beech mein paise ya advance maangti hai",
+                    "!Koi masla nahi"
+                ],
+                other: true,
+                showIf: { name: "maid_currently", in: MAID_ANY }
+            },
+            {
+                type: "rating",
+                name: "maid_satisfaction",
+                text: "Abhi ki safai se aap kitne mutmain hain?",
+                hint: "Stars chunein",
+                captions: ["1 = bilkul mutmain nahi", "5 = bohat mutmain"],
+                showIf: { name: "maid_currently", in: MAID_ANY }
+            },
+            {
+                type: "single",
+                name: "tried_agency",
+                text: "Kya aap ne kabhi kisi company, agency ya app se safai wala ya wali bulwaya hai?",
+                options: ["Haan, tajurba achha tha", "Haan, tajurba achha nahi tha", "Nahi, kabhi nahi"]
+            }
+        ]
+    },
+
+    /* ---------------- PHASE 3 ---------------- */
+    {
+        title: "Yeh service aap ke liye kaisi hogi?",
+        questions: [
+            {
+                type: "info",
+                html: "<strong>Yeh service kya hai?</strong><br>" +
+                      "Hum trained aur verified worker bhejte hain jo aap ke ghar roz (ya hafte mein kuch din) " +
+                      "taqreeban <strong>1 ghanta</strong> aa kar safai karta hai. Booking WhatsApp par hoti hai, " +
+                      "aur pehle ek <strong>trial visit</strong> hoti hai. Agar worker kisi din na aa sake, " +
+                      "to us ki jagah doosra worker bheja jata hai."
+            },
+            {
+                type: "single",
+                name: "interest",
+                text: "Kya aap aisi service use karna pasand karenge?",
+                options: ["Haan, zaroor", "Shayad", "Nahi"]
+            },
+            {
+                type: "multi",
+                name: "interest_barriers",
+                text: "Kaun si baat aap ko rok sakti hai?",
+                hint: "Jo jo lagu ho chun lein",
+                options: [
+                    "Ajnabi ko ghar mein bulane ka darr",
+                    "Mere paas pehle se maid hai",
+                    "Price zyada lagti hai",
+                    "Safai ke maiyaar par shak hai",
+                    "1 ghanta kaafi nahi lagta",
+                    "Is ki zaroorat nahi"
+                ],
+                other: true,
+                showIf: { name: "interest", in: ["Shayad", "Nahi"] }
+            },
+            {
+                type: "multi",
+                name: "service_scope",
+                text: "1 ghante mein aap sab se pehle kaun se kaam karwana chahenge?",
+                hint: "Jo jo lagu ho chun lein",
+                options: [
+                    "Jharu pocha",
+                    "Bartan",
+                    "Bathroom safai",
+                    "Kitchen safai",
+                    "Furniture ki jhaar pooch",
+                    "Kapre tay karna"
+                ],
+                selectAll: true,
+                other: true
+            },
+            {
+                type: "single",
+                name: "female_pref",
+                text: "Aap ke ghar mein kaun sa worker aana aap ko theek lagega?",
+                options: ["Sirf female worker", "Male ya female, dono theek"]
+            },
+            {
+                type: "single",
+                name: "same_worker",
+                text: "Kya har dafa wohi worker aana aap ke liye zaroori hai?",
+                options: [
+                    "Haan, wohi worker zaroori hai",
+                    "Behtar hai, magar zaroori nahi",
+                    "Farq nahi, bas bharosa mand ho"
+                ]
+            },
+            {
+                type: "single",
+                name: "preferred_time",
+                text: "Aap ke liye worker ka sab se munasib waqt kaun sa hai?",
+                options: [
+                    "Subah (8–11)",
+                    "Din (11–2)",
+                    "Dopahar (2–5)",
+                    "Sham (5–8)",
+                    "Koi bhi waqt chalega"
+                ]
+            },
+            {
+                type: "multi",
+                name: "important_factors",
+                text: "Aise service chunne mein aap ke liye sab se zaroori 2 ya 3 cheezein kaun si hain?",
+                hint: "Zyada se zyada 3 chunein",
+                options: [
+                    "Verified aur bharose wala worker",
+                    "Waqt par aana",
+                    "Safai ka achha maiyaar",
+                    "Munasib price",
+                    "Wohi worker har dafa",
+                    "Female worker",
+                    "Aasaan booking",
+                    "Kaam theek na ho to guarantee"
+                ],
+                min: 2,
+                max: 3
+            },
+            {
+                type: "single",
+                name: "booking_method",
+                text: "Booking aap ke liye kaise sab se aasaan hogi?",
+                options: ["WhatsApp", "Phone call", "Mobile app", "Website"]
+            },
+            {
+                type: "single",
+                name: "payment_method",
+                text: "Aap payment kaise karna pasand karenge?",
+                options: ["Cash", "JazzCash / Easypaisa", "Bank transfer ya card"]
+            },
+            {
+                type: "single",
+                name: "payment_timing",
+                text: "Payment kab karna aap ko theek lagta hai?",
+                options: [
+                    "Mahine ke shuru mein (advance)",
+                    "Mahine ke aakhir mein",
+                    "Har visit ke baad"
+                ]
+            }
+        ]
+    },
+
+    /* ---------------- PHASE 4 ---------------- */
+    {
+        title: "Price ke baare mein aap ki raaye",
+        questions: [
+            {
+                type: "single",
+                name: "fair_price",
+                text: "Trained aur verified worker se 1 ghante ki ghar ki safai ka munasib rate aap ke khayal mein kitna hona chahiye?",
+                hint: "Apni raaye batayein, koi sahi ya ghalat jawab nahi",
+                options: [
+                    "Rs 200 se kam",
+                    "Rs 200–300",
+                    "Rs 300–400",
+                    "Rs 400–500",
+                    "Rs 500–700",
+                    "Rs 700 se zyada"
+                ]
+            },
+            {
+                type: "info",
+                html: "<strong>Aaj kal market mein is tarah ki service ka average rate taqreeban Rs 500 per ghanta chal raha hai.</strong>"
+            },
+            {
+                type: "single",
+                name: "price_reaction",
+                text: "Rs 500 per ghanta ke baare mein aap ka kya khayal hai?",
+                options: [
+                    "Bohat sasta, safai ke maiyaar par shak hota hai",
+                    "Munasib hai, main le lunga",
+                    "Thora mehnga hai, magar soch sakta hoon",
+                    "Mehnga hai, main nahi lunga"
+                ]
+            },
+            {
+                type: "single",
+                name: "package_pref",
+                text: "Aap ko in mein se kaun sa mahine ka package pasand aayega?",
+                options: [
+                    "Roz (mahine ke 30 din)",
+                    "Hafte mein 4 din",
+                    "Hafte mein 2 din",
+                    "Abhi sirf trial visit",
+                    "Koi package nahi chahiye"
+                ]
+            },
+            {
+                type: "single",
+                name: "monthly_budget",
+                text: "Ghar ki safai ke liye aap mahine ka zyada se zyada kitna kharch kar sakte hain?",
+                options: [
+                    "Rs 3,000 se kam",
+                    "Rs 3,000–5,000",
+                    "Rs 5,000–8,000",
+                    "Rs 8,000–12,000",
+                    "Rs 12,000 se zyada"
+                ]
+            }
+        ]
+    },
+
+    /* ---------------- PHASE 5 ---------------- */
+    {
+        title: "Bharose ki baat",
+        questions: [
+            {
+                type: "multi",
+                name: "worker_checks",
+                text: "Kisi naye worker ko ghar bulane se pehle aap kya kya dekhna chahenge?",
+                hint: "Jo jo lagu ho chun lein",
+                options: [
+                    "CNIC ki copy",
+                    "Police verification",
+                    "Kisi ki guarantee ya reference",
+                    "Worker ki photo aur naam pehle se WhatsApp par",
+                    "Company ka ID card",
+                    "!Kuch nahi, bas kaam achha ho"
+                ],
+                other: true
+            },
+            {
+                type: "single",
+                name: "alone_comfort",
+                text: "Agar ghar mein koi na ho, to kya aap worker ko ghar mein safai ke liye akela chhor sakte hain?",
+                options: [
+                    "Haan, verified ho to theek hai",
+                    "Sirf female worker ho to",
+                    "Nahi, ghar par koi na koi hona chahiye"
+                ]
+            },
+            {
+                type: "single",
+                name: "bad_work",
+                text: "Agar safai theek na ho, to aap kya chahenge?",
+                options: [
+                    "Usi din dobara free safai",
+                    "Us visit ka paisa wapas",
+                    "Worker badal diya jaye",
+                    "Kuch nahi, bas aage dhyan rakha jaye"
+                ]
+            },
+            {
+                type: "single",
+                name: "worker_absent",
+                text: "Agar worker kisi din na aa sake, to aap kya chahenge?",
+                options: [
+                    "Usi din doosra worker bhej diya jaye",
+                    "Agle din extra visit ho jaye",
+                    "Us din ka paisa package mein adjust ho jaye"
+                ]
+            }
+        ]
+    },
+
+    /* ---------------- PHASE 6 ---------------- */
+    {
+        title: "Bas aakhri baatein",
+        questions: [
+            {
+                type: "text",
+                name: "biggest_problem",
+                text: "Ghar ki safai ya maid ke silsile mein aap ko sab se bara masla kya lagta hai?",
+                placeholder: "Jo bhi masla hai, yahan likh dein (zaroori nahi)"
+            },
+            {
+                type: "single",
+                name: "trial_interest",
+                text: "Jab aisi service aap ke area mein shuru ho, to kya aap ek trial visit book karna chahenge?",
+                options: ["Haan, zaroor", "Shayad", "Nahi"]
+            },
+            {
+                type: "tel",
+                name: "whatsapp",
+                text: "Trial visit ke liye aap ka WhatsApp number kya hai?",
+                placeholder: "03XX XXXXXXX",
+                note: "Aap ka number sirf hamare ek message ke liye istemal hoga, kisi aur se share nahi kiya jayega.",
+                showIf: { name: "trial_interest", in: ["Haan, zaroor", "Shayad"] },
+                requiredIf: { name: "trial_interest", in: ["Haan, zaroor"] }
+            },
+            {
+                type: "single",
+                name: "age",
+                text: "Aap ki umar kitni hai?",
+                options: ["18–25", "26–35", "36–45", "46–60", "60 se zyada"]
+            },
+            {
+                type: "text",
+                name: "suggestion",
+                text: "Is service ke liye aap ka koi mashwara ya koi aur baat jo aap kehna chahen?",
+                placeholder: "Aap ka mashwara (zaroori nahi)"
+            }
+        ]
+    }
+
+];
+
+
+/* ============================================================
+   STATE
+============================================================ */
+
+let currentPhase = 1;
+
+const totalPhases = SURVEY.length;
+
+const startedAt = new Date().getTime();
+
+const form = document.getElementById("surveyForm");
+const phasesRoot = document.getElementById("phases");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+const progressFill = document.getElementById("progressFill");
+const progressTitle = document.getElementById("progressTitle");
+const progressPercent = document.getElementById("progressPercent");
+const successScreen = document.getElementById("successScreen");
+const restartBtn = document.getElementById("restartBtn");
+
+
+/* ============================================================
+   BUILD THE FORM FROM SURVEY CONFIG
+============================================================ */
+
+function esc(text){
+    return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+}
+
+function buildOptions(q){
+
+    const type = q.type === "multi" ? "checkbox" : "radio";
+
+    const layout = q.type === "multi" ? "multiple" : "single";
+
+    const items = [];
+
+    (q.options || []).forEach(function(raw){
+
+        let exclusive = false;
+
+        if(raw.charAt(0) === "!"){
+            exclusive = true;
+            raw = raw.slice(1);
+        }
+
+        const parts = raw.split("|");
+
+        items.push({
+            value: parts[0],
+            label: parts.length > 1 ? parts.slice(1).join("|") : parts[0],
+            exclusive: exclusive
+        });
+
+    });
+
+    if(q.selectAll){
+        items.push({ value: "Sab kuch", label: "Sab kuch", selectAll: true });
+    }
+
+    if(q.other){
+        items.push({ value: "Other", label: "Kuch aur", other: true });
+    }
+
+    let html = '<div class="options ' + layout + '">';
+
+    items.forEach(function(item, index){
+
+        const id = q.name + "_" + index;
+
+        html +=
+            '<div class="option">' +
+                '<input type="' + type + '" name="' + q.name + '" value="' + esc(item.value) + '" id="' + id + '"' +
+                    (item.exclusive ? ' data-exclusive="true"' : "") +
+                    (item.selectAll ? ' data-select-all="true"' : "") +
+                    (item.other ? ' data-other="true"' : "") +
+                '>' +
+                '<label class="option-label" for="' + id + '">' +
+                    '<span class="option-icon"></span>' + esc(item.label) +
+                '</label>' +
+            '</div>';
+
+    });
+
+    html += "</div>";
+
+    if(q.other){
+        html +=
+            '<div class="other-field" data-other-field="' + q.name + '">' +
+                '<textarea name="' + q.name + '_other" placeholder="Yahan likh dein"></textarea>' +
+            '</div>';
+    }
+
+    return html;
+
+}
+
+function buildRating(q){
+
+    let html = '<div class="stars">';
+
+    for(let value = 5; value >= 1; value--){
+
+        const id = q.name + "_" + value;
+
+        html +=
+            '<input type="radio" name="' + q.name + '" value="' + value + '" id="' + id + '">' +
+            '<label for="' + id + '" title="' + value + ' star">★</label>';
+
+    }
+
+    html += "</div>";
+
+    if(q.captions){
+        html +=
+            '<div class="star-captions"><span>' + esc(q.captions[0]) + "</span><span>" +
+            esc(q.captions[1]) + "</span></div>";
+    }
+
+    return html;
+
+}
+
+function buildArea(){
+
+    return (
+        '<input type="search" class="area-search" id="areaSearch" ' +
+            'placeholder="🔍 Apna area likhein, jaise Model Town" autocomplete="off">' +
+        '<div class="area-hint" id="areaHint"></div>' +
+        '<div class="area-list"><div class="options single" id="areaOptions"></div></div>' +
+        '<div class="options single">' +
+            '<div class="option">' +
+                '<input type="radio" name="area" value="Other" id="area_other" data-other="true">' +
+                '<label class="option-label" for="area_other">' +
+                    '<span class="option-icon"></span>Kuch aur (list mein nahi)' +
+                '</label>' +
+            '</div>' +
+        '</div>' +
+        '<div class="other-field" data-other-field="area">' +
+            '<textarea name="area_other" placeholder="Apne area ka naam likh dein"></textarea>' +
+        '</div>'
+    );
+
+}
+
+function buildQuestion(q){
+
+    const el = document.createElement("div");
+
+    if(q.type === "info"){
+
+        el.className = "info-card";
+        el.innerHTML = q.html;
+        el.dataset.type = "info";
+
+        return el;
+
+    }
+
+    el.className = "question";
+    el.dataset.type = q.type;
+    el.dataset.name = q.name;
+
+    el._showIf = q.showIf || null;
+    el._requiredIf = q.requiredIf || null;
+
+    if(q.min){
+        el.dataset.min = q.min;
+        el.dataset.max = q.max;
+    }else if(q.max){
+        el.dataset.max = q.max;
+    }
+
+    let body = "";
+
+    if(q.type === "single" || q.type === "multi"){
+        body = buildOptions(q);
+    }else if(q.type === "text"){
+        body = '<textarea class="text-answer" name="' + q.name + '" placeholder="' + esc(q.placeholder || "") + '"></textarea>';
+    }else if(q.type === "tel"){
+        body =
+            '<input type="tel" class="area-search" name="' + q.name + '" placeholder="' + esc(q.placeholder || "") + '" ' +
+                'inputmode="tel" autocomplete="tel">' +
+            (q.note ? '<div class="privacy-note">' + esc(q.note) + "</div>" : "");
+    }else if(q.type === "area"){
+        body = buildArea();
+    }else if(q.type === "rating"){
+        body = buildRating(q);
+    }
+
+    el.innerHTML =
+        '<div class="question-title">' +
+            '<span class="question-number"></span>' +
+            '<div class="question-text">' + esc(q.text) +
+                (q.hint ? '<span class="question-hint">' + esc(q.hint) + "</span>" : "") +
+            "</div>" +
+        "</div>" +
+        body +
+        '<div class="error-message">Yeh sawal reh gaya hai, isay bhi bata dein.</div>';
+
+    return el;
+
+}
+
+function buildSurvey(){
+
+    SURVEY.forEach(function(phase, index){
+
+        const section = document.createElement("section");
+
+        section.className = "phase" + (index === 0 ? " active" : "");
+        section.dataset.phase = index + 1;
+
+        section.innerHTML =
+            '<div class="phase-header">' +
+                '<div class="phase-number">Phase ' + (index + 1) + "</div>" +
+                "<h2>" + esc(phase.title) + "</h2>" +
+            "</div>";
+
+        phase.questions.forEach(function(q){
+            section.appendChild(buildQuestion(q));
+        });
+
+        phasesRoot.appendChild(section);
+
+    });
+
+}
+
+buildSurvey();
+
+const phases = document.querySelectorAll(".phase");
+
+const areaSearch = document.getElementById("areaSearch");
+const areaOptions = document.getElementById("areaOptions");
+const areaHint = document.getElementById("areaHint");
+
+
+/* ============================================================
+   SOURCE / SURVEYOR (URL se: ?surveyor=Ali&src=market)
+============================================================ */
+
+function getParam(name){
+
+    const match = new RegExp("[?&]" + name + "=([^&#]*)").exec(window.location.search);
+
+    if(!match){
+        return "";
+    }
+
+    try{
+        return decodeURIComponent(match[1].replace(/\+/g, " "));
+    }catch(error){
+        return match[1];
+    }
+
+}
+
+form.elements["surveyor"].value = getParam("surveyor");
+
+form.elements["source"].value = getParam("src") || getParam("source") || "direct";
+
+
+/* ============================================================
+   AREA LIST
+============================================================ */
+
+function renderAreas(){
+
+    areaOptions.innerHTML = "";
+
+    LAHORE_AREAS.forEach(function(area, index){
+
+        const id = "area_" + index;
+
+        const option = document.createElement("div");
+
+        option.className = "option";
+
+        option.dataset.search = area.toLowerCase();
+
+        const radio = document.createElement("input");
+
+        radio.type = "radio";
+        radio.name = "area";
+        radio.value = area;
+        radio.id = id;
+
+        const label = document.createElement("label");
+
+        label.className = "option-label";
+        label.htmlFor = id;
+        label.innerHTML = '<span class="option-icon"></span>';
+        label.appendChild(document.createTextNode(area));
+
+        option.appendChild(radio);
+        option.appendChild(label);
+
+        areaOptions.appendChild(option);
+
+    });
+
+}
+
+function filterAreas(){
+
+    const query = areaSearch.value.trim().toLowerCase();
+
+    let visible = 0;
+
+    toArray(areaOptions.querySelectorAll(".option")).forEach(function(option){
+
+        const match = !query || option.dataset.search.indexOf(query) !== -1;
+
+        option.style.display = match ? "" : "none";
+
+        if(match){
+            visible++;
+        }
+
+    });
+
+    areaHint.textContent = visible
+        ? ""
+        : 'Yeh area list mein nahi mila. Neeche "Kuch aur" par click karke likh dein.';
+
+}
+
+renderAreas();
+
+areaSearch.addEventListener("input", filterAreas);
+
+
+/* ============================================================
+   INPUT BEHAVIOUR
+============================================================ */
+
+function handleOtherField(input){
+
+    const question = input.closest(".question");
+
+    if(!question){
+        return;
+    }
+
+    const field = question.querySelector(".other-field");
+
+    if(!field){
+        return;
+    }
+
+    // Radio group: normal option chunne par "Kuch aur" ka box band ho jata hai.
+
+    const otherSelected =
+        input.dataset.other
+            ? input.checked
+            : input.type === "radio"
+                ? false
+                : null;
+
+    if(otherSelected === null){
+        return;
+    }
+
+    const textarea = field.querySelector("textarea");
+
+    if(otherSelected){
+
+        field.classList.add("show");
+
+        if(textarea){
+            setTimeout(function(){ textarea.focus(); }, 80);
+        }
+
+    }else{
+
+        field.classList.remove("show");
+
+        if(textarea){
+            textarea.value = "";
+        }
+
+    }
+
+}
+
+function handleSelectAll(input){
+
+    const question = input.closest(".question");
+
+    if(!question || input.type !== "checkbox"){
+        return;
+    }
+
+    const group = toArray(question.querySelectorAll('input[name="' + input.name + '"]'));
+
+    if(!input.dataset.selectAll){
+
+        // Koi ek option hatane par "Sab kuch" bhi hat jata hai.
+
+        if(!input.checked){
+
+            group.forEach(function(option){
+                if(option.dataset.selectAll){
+                    option.checked = false;
+                }
+            });
+
+        }
+
+        return;
+
+    }
+
+    // "Sab kuch" apne se oopar ke sab options chun leta hai ("Kuch aur" ko nahi).
+
+    const position = group.indexOf(input);
+
+    group.forEach(function(option, index){
+        if(index < position){
+            option.checked = input.checked;
+        }
+    });
+
+}
+
+function clearOther(question){
+
+    const field = question.querySelector(".other-field");
+
+    if(field){
+
+        field.classList.remove("show");
+
+        const textarea = field.querySelector("textarea");
+
+        if(textarea){
+            textarea.value = "";
+        }
+
+    }
+
+}
+
+function handleExclusive(input){
+
+    const question = input.closest(".question");
+
+    if(!question || input.type !== "checkbox"){
+        return;
+    }
+
+    const group = toArray(question.querySelectorAll('input[name="' + input.name + '"]'));
+
+    if(!input.dataset.exclusive){
+
+        // Normal option chunne par "Koi masla nahi" jaisa option hat jata hai.
+
+        if(input.checked){
+            group.forEach(function(option){
+                if(option.dataset.exclusive){
+                    option.checked = false;
+                }
+            });
+        }
+
+        return;
+
+    }
+
+    if(input.checked){
+
+        group.forEach(function(option){
+            if(option !== input){
+                option.checked = false;
+            }
+        });
+
+        clearOther(question);
+
+    }
+
+}
+
+function handleLimit(input){
+
+    const question = input.closest(".question");
+
+    if(!question || input.type !== "checkbox" || !question.dataset.max){
+        return;
+    }
+
+    const max = Number(question.dataset.max);
+
+    const selected = question.querySelectorAll('input[name="' + input.name + '"]:checked');
+
+    if(input.checked && selected.length > max){
+
+        input.checked = false;
+
+        alert("Zyada se zyada " + max + " options chunein.");
+
+    }
+
+}
+
+
+form.addEventListener("change", function(event){
+
+    const input = event.target;
+
+    if(input.type !== "radio" && input.type !== "checkbox"){
+        return;
+    }
+
+    const question = input.closest(".question");
+
+    if(question){
+        question.classList.remove("error");
+    }
+
+    handleOtherField(input);
+    handleSelectAll(input);
+    handleExclusive(input);
+    handleLimit(input);
+
+    updateConditional();
+
+});
+
+form.addEventListener("input", function(event){
+
+    const question = event.target.closest ? event.target.closest(".question") : null;
+
+    if(question){
+        question.classList.remove("error");
+    }
+
+});
+
+// Enter dabane se form reload na ho.
+
+form.addEventListener("submit", function(event){
+    event.preventDefault();
+});
+
+
+/* ============================================================
+   CONDITIONAL QUESTIONS
+============================================================ */
+
+function getValue(name){
+
+    const checked = form.querySelector('input[name="' + name + '"]:checked');
+
+    return checked ? checked.value : "";
+
+}
+
+function matches(cond){
+
+    return !!cond && cond.in.indexOf(getValue(cond.name)) !== -1;
+
+}
+
+function resetQuestion(question){
+
+    toArray(question.querySelectorAll("input, textarea")).forEach(function(input){
+
+        if(input.type === "radio" || input.type === "checkbox"){
+            input.checked = false;
+        }else{
+            input.value = "";
+        }
+
+    });
+
+    clearOther(question);
+
+    question.classList.remove("error");
+
+}
+
+function updateConditional(){
+
+    const conditional = toArray(document.querySelectorAll(".question")).filter(function(question){
+        return !!question._showIf;
+    });
+
+    conditional.forEach(function(question){
+
+        const show = matches(question._showIf);
+
+        const wasHidden = question.dataset.skip === "true";
+
+        question.style.display = show ? "" : "none";
+
+        question.dataset.skip = show ? "false" : "true";
+
+        toArray(question.querySelectorAll("input, textarea")).forEach(function(input){
+            input.disabled = !show;
+        });
+
+        // Chhupe hue sawal ka purana jawab saaf kar dein.
+
+        if(!show && !wasHidden){
+            resetQuestion(question);
+        }
+
+    });
+
+    renumberQuestions();
+
+}
+
+function renumberQuestions(){
+
+    toArray(phases).forEach(function(phase){
+
+        let number = 0;
+
+        toArray(phase.querySelectorAll(".question")).forEach(function(question){
+
+            if(question.style.display === "none"){
+                return;
+            }
+
+            const badge = question.querySelector(".question-number");
+
+            if(badge){
+                badge.textContent = ++number;
+            }
+
+        });
+
+    });
+
+}
+
+
+/* ============================================================
+   VALIDATION
+============================================================ */
+
+function validPhone(raw){
+
+    const digits = String(raw || "").replace(/\D/g, "");
+
+    // 03XXXXXXXXX (11 digits) ya 923XXXXXXXXX (12 digits)
+
+    return /^03\d{9}$/.test(digits) || /^923\d{9}$/.test(digits);
+
+}
+
+function validatePhase(){
+
+    const phase = document.querySelector('.phase[data-phase="' + currentPhase + '"]');
+
+    if(!phase){
+        return true;
+    }
+
+    let valid = true;
+
+    function fail(question, message){
+
+        question.classList.add("error");
+
+        question.querySelector(".error-message").textContent = message;
+
+        valid = false;
+
+    }
+
+    toArray(phase.querySelectorAll(".question")).forEach(function(question){
+
+        question.classList.remove("error");
+
+        if(question.dataset.skip === "true"){
+            return;
+        }
+
+        const type = question.dataset.type;
+
+        if(type === "text"){
+            return;
+        }
+
+        if(type === "tel"){
+
+            const phone = question.querySelector('input[type="tel"]');
+
+            const value = phone ? phone.value.trim() : "";
+
+            if(!value){
+
+                if(matches(question._requiredIf)){
+                    fail(question, "Trial visit ke liye number likhna zaroori hai.");
+                }
+
+            }else if(!validPhone(value)){
+
+                fail(question, "Number theek nahi lagta. Is tarah likhein: 0300 1234567");
+
+            }
+
+            return;
+
+        }
+
+        const inputs = toArray(question.querySelectorAll('input[type="radio"], input[type="checkbox"]'));
+
+        const checked = inputs.filter(function(input){ return input.checked; });
+
+        if(checked.length === 0){
+
+            fail(
+                question,
+                type === "multi"
+                    ? "Kam az kam ek option chunein."
+                    : "Yeh sawal reh gaya hai, isay bhi bata dein."
+            );
+
+            return;
+
+        }
+
+        if(question.dataset.min){
+
+            const min = Number(question.dataset.min);
+
+            const max = Number(question.dataset.max);
+
+            if(checked.length < min || checked.length > max){
+
+                fail(question, min + " se " + max + " options chunein.");
+
+                return;
+
+            }
+
+        }
+
+        const otherInput = question.querySelector("input[data-other]:checked");
+
+        if(otherInput){
+
+            const field = question.querySelector(".other-field");
+
+            const textarea = field ? field.querySelector("textarea") : null;
+
+            if(!textarea || !textarea.value.trim()){
+                fail(question, '"Kuch aur" ka jawab likh dein.');
+            }
+
+        }
+
+    });
+
+    if(!valid){
+
+        const firstError = phase.querySelector(".question.error");
+
+        if(firstError){
+            firstError.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+
+    }
+
+    return valid;
+
+}
+
+
+/* ============================================================
+   PHASE NAVIGATION
+============================================================ */
+
+function updatePhase(){
+
+    toArray(phases).forEach(function(phase){
+        phase.classList.toggle("active", Number(phase.dataset.phase) === currentPhase);
+    });
+
+    const percentage = Math.round((currentPhase / totalPhases) * 100);
+
+    progressFill.style.width = percentage + "%";
+
+    progressTitle.textContent = "Phase " + currentPhase + " of " + totalPhases;
+
+    progressPercent.textContent = percentage + "%";
+
+    prevBtn.disabled = currentPhase === 1;
+
+    nextBtn.textContent = currentPhase === totalPhases ? "Jawab bhejein ✓" : "Aage chalein →";
+
+    updateConditional();
+
+}
+
+nextBtn.addEventListener("click", function(){
+
+    if(!validatePhase()){
+        return;
+    }
+
+    if(currentPhase < totalPhases){
+
+        currentPhase++;
+
+        updatePhase();
+
+        scrollToTop();
+
+    }else{
+
+        submitSurvey();
+
+    }
+
+});
+
+prevBtn.addEventListener("click", function(){
+
+    if(currentPhase > 1){
+
+        currentPhase--;
+
+        updatePhase();
+
+        scrollToTop();
+
+    }
+
+});
+
+restartBtn.addEventListener("click", function(){
+
+    // Agla respondent: surveyor/source URL mein rehte hain, page naya ho jata hai.
+
+    window.location.reload();
+
+});
+
+updatePhase();
+
+
+/* ============================================================
+   BUILD PAYLOAD
+============================================================ */
+
+function buildPayload(){
+
+    const data = {};
+
+    toArray(form.elements).forEach(function(el){
+
+        if(!el.name || el.disabled){
+            return;
+        }
+
+        if((el.type === "radio" || el.type === "checkbox") && !el.checked){
+            return;
+        }
+
+        const value = String(el.value).trim();
+
+        // "Sab kuch" sirf shortcut hai, asal options already array mein hote hain.
+
+        if(!value || el.dataset.selectAll){
+            return;
+        }
+
+        // Checkbox sawal hamesha array ban kar jata hai (sheet mein aasani ke liye).
+
+        if(el.type === "checkbox"){
+
+            if(!data[el.name]){
+                data[el.name] = [];
+            }
+
+            data[el.name].push(value);
+
+        }else{
+
+            data[el.name] = value;
+
+        }
+
+    });
+
+    data.model_town = (data.area || "").indexOf("Model Town") === 0;
+
+    data.duration_seconds = Math.round((new Date().getTime() - startedAt) / 1000);
+
+    data.submitted_at = new Date().toISOString();
+
+    data.survey = SURVEY_NAME;
+
+    data.survey_version = SURVEY_VERSION;
+
+    return data;
+
+}
+
+
+/* ============================================================
+   SUBMIT TO N8N
+============================================================ */
+
+function submitSurvey(){
+
+    const payload = buildPayload();
+
+    nextBtn.disabled = true;
+
+    nextBtn.textContent = "Bhej rahe hain...";
+
+    function fail(error){
+
+        console.error(error);
+
+        alert("Survey submit nahi ho saka. Internet check karke dobara try karein.");
+
+        nextBtn.disabled = false;
+
+        nextBtn.textContent = "Jawab bhejein ✓";
+
+    }
+
+    // Link set na ho to jawab zaya na hon: success dikhane ki bajaye saaf bata dein.
+
+    if(!SHEET_URL || SHEET_URL === "PASTE_APPS_SCRIPT_URL_HERE"){
+
+        console.warn("SHEET_URL set nahi hai.", payload);
+
+        alert("Sheet ka link abhi set nahi hua, isliye jawab save nahi ho sakta.");
+
+        nextBtn.disabled = false;
+
+        nextBtn.textContent = "Jawab bhejein ✓";
+
+        return;
+
+    }
+
+    // XMLHttpRequest taake purane in-app browsers mein bhi chale.
+
+    try{
+
+        const request = new XMLHttpRequest();
+
+        request.open("POST", SHEET_URL, true);
+
+        // text/plain rakhna zaroori hai: Google Apps Script "application/json" ki CORS preflight qubool nahi karta.
+        request.setRequestHeader("Content-Type", "text/plain;charset=utf-8");
+
+        request.onload = function(){
+
+            if(request.status >= 200 && request.status < 300){
+                showSuccess();
+            }else{
+                fail(new Error("Sheet returned " + request.status));
+            }
+
+        };
+
+        request.onerror = function(){
+            fail(new Error("Network error"));
+        };
+
+        request.send(JSON.stringify(payload));
+
+    }catch(error){
+
+        fail(error);
+
+    }
+
+}
+
+function showSuccess(){
+
+    form.style.display = "none";
+
+    document.querySelector(".progress-wrapper").style.display = "none";
+
+    successScreen.classList.add("show");
+
+    scrollToTop();
+
+}
+
+</script>
+
+</body>
+</html>
